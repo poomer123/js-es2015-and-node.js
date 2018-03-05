@@ -1,31 +1,44 @@
-console.log('Arrow Function เขียนฟังก์ชั่นแบบใหม่ สั้น กระชับกว่า')
+console.log('let - const การประกาศตัวแปรแบบทันสมัย เลิกใช้ var!')
 
-var greet = function(name, message) {
-    return message + name
+var name = "Luna"
+
+if (true) {
+ var name = "Ken"
+}
+console.log(name)
+
+function a() {
+    var name = "Ko"
+}
+console.log(name)
+
+
+
+let name1 = "Zo"
+if(true) {
+    let name1 = "Zoho"
+}
+console.log(name1)
+
+
+var stack = []
+
+for (let i=0; i<10; i++) {
+    stack.push(function(){
+        console.log(i)
+    })
 }
 
-var arrowGreet = (name, message) => {
-    return message + name
+stack.forEach(function(f) {
+    f()
+})
+
+
+const fruit = 'Banana' 
+{
+    const fruit = 'Apple'
 }
+console.warn(fruit);
 
-var arrowGreet2 = (name, message) => message + name
-
-var arrowGreet3 = message => message
-
-var square = x => x * x
-
-
-var person = {
-    name: 'Luna',
-
-    handleMessage: function(message, handler) {
-        handler(message)
-    },
-
-    greet: function() {
-        this.handleMessage('Hi', message => console.log(message + this.name))
-    }
-}
-
-
-person.greet()
+const person = {}
+person.name = 'Luna'
