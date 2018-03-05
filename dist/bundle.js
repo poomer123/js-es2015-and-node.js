@@ -76,9 +76,10 @@
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("let a = 'test'\r\nconsole.log(a)\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("\n\nvar a = 'test';\nconsole.log(a);\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
