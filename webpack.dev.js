@@ -3,8 +3,9 @@ const path = require('path');
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public', 'dist')
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'public/dist'),
+        publicPath: '/',
     },
     module: {
         rules: [
@@ -19,4 +20,9 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        port: 8080,
+        inline: true,
+    },
+    mode: "development",
 }
