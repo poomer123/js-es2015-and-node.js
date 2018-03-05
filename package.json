@@ -4,7 +4,7 @@
   "description": "เตรียมพื้นฐาน ES2015 และ Node.js ก่อนจะไปลุย React",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d lib"
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,8 @@
   "homepage": "https://github.com/poomer123/js-es2015-and-node.js#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^4.1.0",
+    "webpack-cli": "^2.0.10"
   }
 }
