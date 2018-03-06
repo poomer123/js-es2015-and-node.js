@@ -1,44 +1,30 @@
-console.log('let - const การประกาศตัวแปรแบบทันสมัย เลิกใช้ var!')
+const color = "red"
+const age = 2
 
-var name = "Luna"
-
-if (true) {
- var name = "Ken"
-}
-console.log(name)
-
-function a() {
-    var name = "Ko"
-}
-console.log(name)
-
-
-
-let name1 = "Zo"
-if(true) {
-    let name1 = "Zoho"
-}
-console.log(name1)
-
-
-var stack = []
-
-for (let i=0; i<10; i++) {
-    stack.push(function(){
-        console.log(i)
-    })
+function bark() {
+    console.warn("Hong")
 }
 
-stack.forEach(function(f) {
-    f()
-})
+const dog = {color: color, age: age, bark: bark}
+
+dog.bark()
+
+const dog1 = {color, age, bark}
+dog1.bark()
 
 
-const fruit = 'Banana' 
-{
-    const fruit = 'Apple'
+
+const doBark = "ba" + "rk"
+const dog2 = {
+    color: function() {
+        console.warn("red red")
+    },
+    age,
+    [doBark]: function() {
+        console.warn('Hong Hong Hong')
+    }
 }
-console.warn(fruit);
+dog2.color()
+dog2.bark()
 
-const person = {}
-person.name = 'Luna'
+
