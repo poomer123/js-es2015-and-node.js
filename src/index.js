@@ -1,51 +1,54 @@
-const arr = [4,5,6]
-const append = [1,2,3, ...arr]
+import { EAFNOSUPPORT } from "constants";
 
-console.warn(append)
+const array = [1, 2]
+const a = array[0]
+const b = array[1]
 
-
-const arr1 = ['a', 'b', 'c']
-const arr2 = ['d', 'e', 'f']
-arr1.push(...arr2)
-console.warn(arr1)
+console.log(a, b)
 
 
-const arr3 = [1,2,3]
-const copy = arr3.slice()
-console.warn(copy)
-copy.push(4)
-console.warn(arr3)
-console.warn(copy)
+const [c, d] = array
+console.log(c, d)
 
 
+const person = {first: 'Jane', last: 'Doe'}
+const f = person.first
+const l = person.last
+console.log(f, l)
 
-function add(x,y,z) {
-    return x+y+z
+const {first: newf, last: newl} = person
+console.log(newf, newl)
+
+
+const oneToFive = [1,2,3,4,5]
+const [a1,b1,,c1] = oneToFive
+console.log(a1, b1, c1)
+
+
+const personDetail = {
+    first: 'Jane',
+    last: 'Doe',
+    email: 'jane@doe.com',
+    brithday: {
+        day: 20,
+        month: 'Jan',
+        year: 1990
+    }
 }
+const {first: fPerson, email: ePerson} = personDetail
+console.log(fPerson, ePerson)
+
+const {first, email} = personDetail
+console.log(first, email)
+
+const arr = [1, 2, 3, 4, 5]
+const [arr1, arr2, ...rest] = arr
+console.log(rest)
 
 
-const numbers = [1,2,3]
-const sum = add(1,2,3)
-console.log(sum)
 
-
-const sum1 = add(...numbers)
-console.log(sum1)
-
-// Rest params
-function howManyArgs(...args) {
-    console.log(args.length)
-    console.log(args)
+function createUser() {
+    return {name: 'Luna', age: 2}
 }
-howManyArgs()
-howManyArgs(4)
-howManyArgs(4,5)
-
-
-function multiply(multiplier, ...array5) {
-    console.log(multiplier)
-    console.log(array5)
-    return array5.map(e => multiplier * e)
-}
-const result = multiply(2, 100, 200, 300)
-console.log(result)
+const {name, age} = createUser()
+console.log(name, age)
