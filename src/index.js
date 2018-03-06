@@ -1,30 +1,13 @@
-const color = "red"
-const age = 2
+const string = `test ES6
+test es6
+test`
 
-function bark() {
-    console.warn("Hong")
-}
-
-const dog = {color: color, age: age, bark: bark}
-
-dog.bark()
-
-const dog1 = {color, age, bark}
-dog1.bark()
+console.warn(string);
 
 
 
-const doBark = "ba" + "rk"
-const dog2 = {
-    color: function() {
-        console.warn("red red")
-    },
-    age,
-    [doBark]: function() {
-        console.warn('Hong Hong Hong')
-    }
-}
-dog2.color()
-dog2.bark()
+const name = 'Jo'
+const time = 'today'
+const greet = `Hi ${name + 'joe'}, How are you ${time}?`
 
-
+console.warn(greet);
