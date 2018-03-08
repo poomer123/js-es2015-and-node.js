@@ -1,69 +1,57 @@
-function howAreYou(mood) {
-    if(!mood) {
-        mood = 'Happy'
+class Rectangle {
+    constructor(height, width) {
+        this.height = height
+        this.width = width
     }
-    console.warn(mood)
+
+    greet() {
+        console.log('Hi, Dev')
+    
+    }
+    set color(c) {
+        this._color = c
+    }
+
+    get color() {
+        return this._color
+    }
+
+    get dimension() {
+        return `${this.height} x ${this.width}`
+    }
+
+    static area(c) {
+        return c.width * c.height
+    }
+
+    thearea(h,w) {
+        return w * h
+    }
 }
 
-howAreYou()
+const r = new Rectangle(20, 10)
+console.warn(r)
+console.warn(r.height)
+console.warn(r.width)
+r.greet()
+
+r.color = 'red'
+console.warn(r.color)
+
+console.log(r.dimension)
+
+console.log(Rectangle.area(r))
+
+console.log(r.thearea(50,3))
 
 
-function howAreYou1(mood1 = "Mood") {
-    console.warn(mood1)
+
+class Square extends Rectangle {
+    constructor(width){
+        super(width, width)
+    }
 }
 
-howAreYou1()
-
-
-let [x,y=2] = [1, ]
-console.warn(x,y)
-
-
-const {age: m, name: n='Nana'} = {age: 3, }
-console.warn(n,m)
-
-
-const [{ prop: p=5 }] = [{ prop: undefined }]
-console.warn(p)
-
-
-const [{ popup: pop=1 } = {}] = []
-console.warn(pop)
-
-
-function createUser(person) {
-    const name = person.name || 'Nana'
-    const age = person.age || 2
-    return `${name} (age: ${age})`
-}
-console.log( createUser({}) ) 
-console.log( createUser({age: 10, name: 'Lucy'}) ) 
-
-
-function createUser1({age = 20, name} = {}) {
-    return `${name} (age: ${age})`
-}
-console.log( createUser1({name: 'Jay'}) )
-console.log(createUser1())
-
-function profilePage (
-    {favColor} = {favColor: 'Pink'},
-    [name, age] = ['Bunny', 24]
-) {
-    console.warn(
-        `Name: ${name}, Age: ${age}, Color: ${favColor}`
-    )
-}
-profilePage()
-profilePage({}, [])
-
-function profilePage1 (
-    {favColor = 'Red'} = {},
-    [name = 'Bun', age = 24] = []
-) {
-    console.warn(
-        `Name: ${name}, Age: ${age}, Color: ${favColor}`
-    )
-}
-profilePage1()
-profilePage1({}, [])
+const s = new Square(10)
+console.log(s.dimension)
+console.log(Square.area(s))
