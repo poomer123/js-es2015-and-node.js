@@ -1,54 +1,69 @@
-import { EAFNOSUPPORT } from "constants";
-
-const array = [1, 2]
-const a = array[0]
-const b = array[1]
-
-console.log(a, b)
-
-
-const [c, d] = array
-console.log(c, d)
-
-
-const person = {first: 'Jane', last: 'Doe'}
-const f = person.first
-const l = person.last
-console.log(f, l)
-
-const {first: newf, last: newl} = person
-console.log(newf, newl)
-
-
-const oneToFive = [1,2,3,4,5]
-const [a1,b1,,c1] = oneToFive
-console.log(a1, b1, c1)
-
-
-const personDetail = {
-    first: 'Jane',
-    last: 'Doe',
-    email: 'jane@doe.com',
-    brithday: {
-        day: 20,
-        month: 'Jan',
-        year: 1990
+function howAreYou(mood) {
+    if(!mood) {
+        mood = 'Happy'
     }
+    console.warn(mood)
 }
-const {first: fPerson, email: ePerson} = personDetail
-console.log(fPerson, ePerson)
 
-const {first, email} = personDetail
-console.log(first, email)
-
-const arr = [1, 2, 3, 4, 5]
-const [arr1, arr2, ...rest] = arr
-console.log(rest)
+howAreYou()
 
 
-
-function createUser() {
-    return {name: 'Luna', age: 2}
+function howAreYou1(mood1 = "Mood") {
+    console.warn(mood1)
 }
-const {name, age} = createUser()
-console.log(name, age)
+
+howAreYou1()
+
+
+let [x,y=2] = [1, ]
+console.warn(x,y)
+
+
+const {age: m, name: n='Nana'} = {age: 3, }
+console.warn(n,m)
+
+
+const [{ prop: p=5 }] = [{ prop: undefined }]
+console.warn(p)
+
+
+const [{ popup: pop=1 } = {}] = []
+console.warn(pop)
+
+
+function createUser(person) {
+    const name = person.name || 'Nana'
+    const age = person.age || 2
+    return `${name} (age: ${age})`
+}
+console.log( createUser({}) ) 
+console.log( createUser({age: 10, name: 'Lucy'}) ) 
+
+
+function createUser1({age = 20, name} = {}) {
+    return `${name} (age: ${age})`
+}
+console.log( createUser1({name: 'Jay'}) )
+console.log(createUser1())
+
+function profilePage (
+    {favColor} = {favColor: 'Pink'},
+    [name, age] = ['Bunny', 24]
+) {
+    console.warn(
+        `Name: ${name}, Age: ${age}, Color: ${favColor}`
+    )
+}
+profilePage()
+profilePage({}, [])
+
+function profilePage1 (
+    {favColor = 'Red'} = {},
+    [name = 'Bun', age = 24] = []
+) {
+    console.warn(
+        `Name: ${name}, Age: ${age}, Color: ${favColor}`
+    )
+}
+profilePage1()
+profilePage1({}, [])
