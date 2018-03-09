@@ -1,20 +1,23 @@
 const arr = [10, 20, 30]
 
-const rs = arr.map( element => element / 2 )
-console.warn(rs)
+const rs = arr.filter( e => e > 10)
+console.log(rs)
+
+const rs1 = arr.filter( e => e !== 20)
+console.log(rs1)
 
 
-const pets = [
-    {name: 'Luna'},
-    {name: 'Lulu'}
+const food = [
+    {id: 1, name: 'Kaprao', cal: 1000},
+    {id: 2, name: 'Salad', cal: 500},
+    {id: 3, name: 'Radna', cal: 1400},
+    {id: 4, name: 'Soup', cal: 700},
+    {id: 5, name: 'Fried Chicken', cal: 1200},
 ]
 
-const name = pets.map( e => e.name )
-console.log(name)
+const isNotSalad = e => e.name !== 'Salad'
+const result = food
+    .filter( e => e.cal < 1000)
+    .filter(isNotSalad)
+console.log(result)
 
-
-const fruits = ['banana', 'apple', 'mango']
-const say = fruits.map( (e, i, array) => {
-    return `Day ${i+1} eat ${e}`
-})
-console.log(say)
