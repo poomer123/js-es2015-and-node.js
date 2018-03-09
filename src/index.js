@@ -1,29 +1,47 @@
-const array = [-1, 4, 7, 8, 10 ,11, 16]
-
-const test = array.every(e => e > 0)
-console.warn(test)
+const array = [1, 2, 3]
 
 
-const test1 = array.every(e => e > 10)
-console.warn(test1)
+const result = []
+for (let i=0; i<array.length; i++) {
+    const a = array[i] * 2
+    result.push(a)
+}
+console.warn(result)
+console.warn(array)
 
 
-const test2 = array.some(e => e > 0)
-console.warn(test2)
+
+const result1 = []
+array.forEach( e => {
+    const a = e * 2
+    result1.push(a)
+})
+console.warn(result1)
+console.warn(array)
 
 
-const arr = [
-    {
-        id: 1, name: 'Luna', color: 'Brown', breed: 'Pug',
-    },
-    {
-        id: 2, name: 'Lulu', color: 'Black', breed: 'Hong',
-    }
-]
-
-const dog = arr.every(e => e.name === 'Luna')
-console.log(dog)
 
 
-const dog1 = arr.some(e => e.name === 'Luna')
-console.log(dog1)
+for (let i=0; i<array.length; i++) {
+    array[i] = array[i] * 2
+}
+console.warn(array)
+
+
+
+
+const arr = [1, 2, 3]
+const rs = arr.map( e => e * 2 )
+console.log(rs)
+
+const multipyBy4 = e => e * 4
+const rs1 = arr.map(multipyBy4)
+console.log(rs1)
+
+
+const rs2 = arr
+    .map(e => e * 2)
+    .map(multipyBy4)
+
+console.log(rs2)
+console.log(arr)
