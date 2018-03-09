@@ -1,16 +1,34 @@
-const array = ['one', 'two', 'three']
+const array = [1, 4, 8, 10, 8, 11, 12]
 
-for(var i =0; i < array.length; i++) {
-    console.warn(array[i])
-}
+const index = array.indexOf(8)
+console.warn(index)
 
-array.forEach(e => {
-    console.warn(e)
-})
+const index1 = array.indexOf(7)
+console.warn(index1)
 
-for ( const v of array) {
-    if(v === 'two') {
-        continue
-    }
-    console.warn(v)
-}
+
+const found = array.find(e => e === 8)
+console.warn(found)
+
+
+const found1 = array.find(e => e % 4 === 0)
+console.warn(found1)
+
+const found2 = array.findIndex(e => e % 4 === 0)
+console.warn(found2)
+
+
+const c = [
+    {name: 'Luna'},
+    {name: 'Lulu'},
+]
+
+const theindex = c.indexOf({name: 'Luna'})
+console.warn(theindex)
+
+
+const thefound = c.find(e => e.name === 'Luna')
+console.warn(thefound)
+
+const thefound1 = c.findIndex(e => e.name === 'Luna')
+console.warn(thefound1)
