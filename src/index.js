@@ -1,34 +1,29 @@
-const array = [1, 4, 8, 10, 8, 11, 12]
+const array = [-1, 4, 7, 8, 10 ,11, 16]
 
-const index = array.indexOf(8)
-console.warn(index)
-
-const index1 = array.indexOf(7)
-console.warn(index1)
+const test = array.every(e => e > 0)
+console.warn(test)
 
 
-const found = array.find(e => e === 8)
-console.warn(found)
+const test1 = array.every(e => e > 10)
+console.warn(test1)
 
 
-const found1 = array.find(e => e % 4 === 0)
-console.warn(found1)
-
-const found2 = array.findIndex(e => e % 4 === 0)
-console.warn(found2)
+const test2 = array.some(e => e > 0)
+console.warn(test2)
 
 
-const c = [
-    {name: 'Luna'},
-    {name: 'Lulu'},
+const arr = [
+    {
+        id: 1, name: 'Luna', color: 'Brown', breed: 'Pug',
+    },
+    {
+        id: 2, name: 'Lulu', color: 'Black', breed: 'Hong',
+    }
 ]
 
-const theindex = c.indexOf({name: 'Luna'})
-console.warn(theindex)
+const dog = arr.every(e => e.name === 'Luna')
+console.log(dog)
 
 
-const thefound = c.find(e => e.name === 'Luna')
-console.warn(thefound)
-
-const thefound1 = c.findIndex(e => e.name === 'Luna')
-console.warn(thefound1)
+const dog1 = arr.some(e => e.name === 'Luna')
+console.log(dog1)
