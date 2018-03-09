@@ -1,47 +1,20 @@
-const array = [1, 2, 3]
+const arr = [10, 20, 30]
+
+const rs = arr.map( element => element / 2 )
+console.warn(rs)
 
 
-const result = []
-for (let i=0; i<array.length; i++) {
-    const a = array[i] * 2
-    result.push(a)
-}
-console.warn(result)
-console.warn(array)
+const pets = [
+    {name: 'Luna'},
+    {name: 'Lulu'}
+]
+
+const name = pets.map( e => e.name )
+console.log(name)
 
 
-
-const result1 = []
-array.forEach( e => {
-    const a = e * 2
-    result1.push(a)
+const fruits = ['banana', 'apple', 'mango']
+const say = fruits.map( (e, i, array) => {
+    return `Day ${i+1} eat ${e}`
 })
-console.warn(result1)
-console.warn(array)
-
-
-
-
-for (let i=0; i<array.length; i++) {
-    array[i] = array[i] * 2
-}
-console.warn(array)
-
-
-
-
-const arr = [1, 2, 3]
-const rs = arr.map( e => e * 2 )
-console.log(rs)
-
-const multipyBy4 = e => e * 4
-const rs1 = arr.map(multipyBy4)
-console.log(rs1)
-
-
-const rs2 = arr
-    .map(e => e * 2)
-    .map(multipyBy4)
-
-console.log(rs2)
-console.log(arr)
+console.log(say)
