@@ -1,32 +1,15 @@
-const url = 'https://jsonplaceholder.typicode.com/users'
+const user = {
+    data: [
+        {name: 'T. Woods', age: 37},
+        {name: 'P. Mickelson', age: 43},
+    ],
+    showFirstUser: function() {
+        console.warn(this)
+        console.warn(this.data[0].name)
+    }
+}
 
-fetch(url)
-    .then(e => {
-        if(! e.ok) {
-            throw 'error'
-        }
-        console.warn(e)
-        return e.json()
-    })
-    .then(e => {
-        console.warn(e)
-    })
-    .catch(e => {
-        console.error(e)
-    })
-
-
-
-const singleURL = 'https://jsonplaceholder.typicode.com/user'
-// POST JSON
-fetch('/posts', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-        name: 'Hubot',
-        login: 'hubot',
-    }),
-    credentials: 'same-origin'
-})
+// user.showFirstUser()
+const showFirstUser = user.showFirstUser.bind(user)
+// top level use it's windows
+showFirstUser()
