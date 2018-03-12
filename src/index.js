@@ -1,29 +1,32 @@
-// const box = new Promise((resolve, reject) => {
-//     resolve('a')
-// })
+const url = 'https://jsonplaceholder.typicode.com/users'
 
-const box = Promise.resolve('A')
-
-box
-    .then(
-        e => {
-            console.warn(e)
-            throw 'Error'
+fetch(url)
+    .then(e => {
+        if(! e.ok) {
+            throw 'error'
         }
-    )
-    .catch(e => console.error(e))
-    .then(e => console.warn('Final'))
+        console.warn(e)
+        return e.json()
+    })
+    .then(e => {
+        console.warn(e)
+    })
+    .catch(e => {
+        console.error(e)
+    })
 
 
-const box2 = Promise.reject('Error Top')
-box2
-    .then(
-        e => {
-            console.warn(e)
-            throw 'Error'
-        }, e => {
-            console.warn('2rd Handle')
-        }
-    )
-    .catch(e => console.error(e))
-    .then(e => console.warn('Final 2'))
+
+const singleURL = 'https://jsonplaceholder.typicode.com/user'
+// POST JSON
+fetch('/posts', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        name: 'Hubot',
+        login: 'hubot',
+    }),
+    credentials: 'same-origin'
+})
